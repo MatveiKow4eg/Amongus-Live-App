@@ -13,7 +13,7 @@
       <img src="logo.png" alt="Ковчег" class="logo" />
       <div class="status-block">
         <div class="status-label">Игрок:</div>
-        <div class="status-value" id="player-status">Живой</div>
+        <div class="status-value" id="player-status">—</div>
         <div class="timer-box" id="timer-box">—:—</div>
       </div>
     </div>
@@ -23,7 +23,8 @@
       <ul id="task-list"></ul>
     </div>
 
-    <div id="vote-notice" class="vote-cooldown"></div>
+    <input type="number" id="vote-target" class="vote-target-input" min="1" max="60" placeholder="Номер игрока" />
+    <div id="vote-notice" class="vote-cooldown">—</div>
     <button id="vote-btn">ГОЛОСОВАТЬ</button>
 
     <div class="footer-logo">
