@@ -1,15 +1,13 @@
-// hud.js
-// Логика HUD-интерфейса для игрока
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.22.1/firebase-app.js';
 import { getDatabase, ref, onValue, set, push } from 'https://www.gstatic.com/firebasejs/9.22.1/firebase-database.js';
 
-// Проверка авторизации
+// Проверка ввода номера
 const playerNumber = localStorage.getItem('playerNumber');
 if (!playerNumber) {
   window.location.href = 'login.html';
 }
 
-// Конфигурация Firebase
+// Firebase конфиг и инициализация
 const firebaseConfig = {
   apiKey: 'AIzaSyCv0aQq6jTRdPPcTi8yjH4K9goky1IcHqQ',
   authDomain: 'among-us-3c0e0.firebaseapp.com',
@@ -19,21 +17,20 @@ const firebaseConfig = {
   messagingSenderId: '430810539681',
   appId: '1:430810539681:web:6b87449fd40e17cb0b72e0'
 };
-
-// Инициализация
 const app = initializeApp(firebaseConfig);
 const db = getDatabase(app);
 
-// Элементы HUD
+// Элементы интерфейса
 const statusValue = document.getElementById('player-status');
 const timerBox = document.getElementById('timer-box');
 const taskList = document.getElementById('task-list');
 const voteBtn = document.getElementById('vote-btn');
 const voteNotice = document.getElementById('vote-notice');
+const voteTargetInput = document.getElementById('vote-target');
 
 // Подписка на данные игрока
 const playerRef = ref(db, `players/${playerNumber}`);
-onValue(playerRef, (snapshot) => {
+onValue(playerRef, snapshot => {
   const data = snapshot.val();
   if (!data) return;
   statusValue.textContent = data.status === 'alive' ? 'Живой' : 'Мёртвый';
@@ -45,7 +42,7 @@ onValue(playerRef, (snapshot) => {
   });
 });
 
-// Кулдаун голосования
+// Обработка голосования
 let cooldown = 0;
 function startCooldown(seconds) {
   cooldown = seconds;
@@ -71,11 +68,16 @@ function updateTimer() {
 }
 
 voteBtn.addEventListener('click', () => {
+  const target = voteTargetInput.value;
+  if (!target || target < 1 || target > 60) {
+    alert('Введите корректный номер игрока для голосования (1–60).');
+    return;
+  }
   const voteRef = push(ref(db, 'votes'));
   set(voteRef, {
     from: playerNumber,
     timestamp: Date.now(),
-    voteTarget: null
+    voteTarget: target
   });
   startCooldown(300);
 });
