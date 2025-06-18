@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ковчег — Игрок</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <div class="hud">
+    <div class="top-section">
+      <img src="logo.png" alt="Ковчег" class="logo" />
+      <div class="status-block">
+        <div class="status-label">Игрок:</div>
+        <div class="status-value" id="player-status">Живой</div>
+        <div class="timer-box" id="timer-box">—:—</div>
+      </div>
+    </div>
+
+    <div class="task-section">
+      <h3>ЗАДАНИЯ</h3>
+      <ul id="task-list"></ul>
+    </div>
+
+    <div id="vote-notice" class="vote-cooldown"></div>
+    <button id="vote-btn">ГОЛОСОВАТЬ</button>
+
+    <div class="footer-logo">
+      <img src="logo.png" alt="Ковчег мини" />
+      <span>КОВЧЕГ</span>
+    </div>
+  </div>
+  <script type="module" src="hud.js"></script>
+</body>
+</html>
