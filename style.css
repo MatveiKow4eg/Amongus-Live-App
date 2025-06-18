@@ -8,128 +8,81 @@ body {
   align-items: center;
   min-height: 100vh;
 }
-
 .hud {
   width: 100%;
   max-width: 420px;
   padding: 20px;
-  box-sizing: border-box;
 }
-
 .top-section {
   display: flex;
   justify-content: space-between;
-  align-items: center;
 }
-
 .logo {
   width: 100px;
-  height: auto;
 }
-
 .status-block {
   text-align: right;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
 }
-
 .status-label {
-  font-size: 1.1rem;
   opacity: 0.7;
 }
-
-.status-value {
-  font-size: 1.3rem;
+.status-value, .timer-box {
   border: 2px solid #00e2d0;
-  padding: 4px 12px;
-  border-radius: 10px;
-}
-
-.timer-box {
-  align-self: flex-end;
-  border: 2px solid #00e2d0;
-  padding: 6px 12px;
+  padding: 4px 8px;
   border-radius: 8px;
-  font-size: 1.2rem;
   margin-top: 4px;
 }
-
 .task-section {
   background-color: #0b3d45;
-  padding: 16px;
-  margin-top: 20px;
-  border-radius: 16px;
+  padding: 12px;
   border: 2px solid #00e2d0;
+  border-radius: 12px;
+  margin-top: 20px;
 }
-
-.task-section h3 {
-  margin: 0 0 12px;
-  font-size: 1.2rem;
-  color: white;
-  text-align: center;
-}
-
 #task-list {
   list-style: none;
   padding: 0;
 }
-
 #task-list li {
-  padding: 6px 0;
+  padding: 4px 0;
+}
+.vote-target-input {
+  width: 100%;
+  padding: 10px;
+  margin-top: 16px;
   font-size: 1rem;
-  position: relative;
-  padding-left: 1.2em;
+  border-radius: 10px;
+  border: 2px solid #00e2d0;
+  background-color: #1c1c1c;
 }
-
-#task-list li::before {
-  content: '•';
-  color: white;
-  position: absolute;
-  left: 0;
-}
-
 .vote-cooldown {
   border: 2px solid #d94c3f;
-  padding: 10px;
+  padding: 8px;
+  margin-top: 10px;
   text-align: center;
-  margin-top: 20px;
-  font-weight: bold;
-  color: #ff6e6e;
-  border-radius: 10px;
+  border-radius: 8px;
 }
-
 #vote-btn {
-  margin-top: 16px;
   width: 100%;
+  padding: 12px;
   background-color: #c0392b;
-  color: white;
-  padding: 16px;
   border: none;
-  font-size: 1.3rem;
-  border-radius: 14px;
+  border-radius: 10px;
+  margin-top: 12px;
+  font-size: 1.1rem;
   cursor: pointer;
-  text-transform: uppercase;
 }
-
 #vote-btn:hover {
   background-color: #e74c3c;
 }
-
 .footer-logo {
-  margin-top: 30px;
   display: flex;
-  align-items: center;
   justify-content: center;
-  gap: 8px;
+  align-items: center;
+  margin-top: 20px;
   opacity: 0.6;
 }
-
 .footer-logo img {
   width: 32px;
-}
-
-.footer-logo span {
-  font-size: 1rem;
-  letter-spacing: 2px;
+  margin-right: 8px;
 }
